@@ -4,7 +4,6 @@ import (
 	"strings"
 
 	tea "github.com/charmbracelet/bubbletea"
-	"github.com/muesli/termenv"
 )
 
 func (m Model) Update(msg tea.Msg) (Model, tea.Cmd) {
@@ -58,7 +57,9 @@ func (m Model) View() string {
 	mlist := []string{}
 	for idx, w := range m.matchingWords {
 		if idx == m.index {
-			w = termenv.String(w).Underline().String()
+			w = m.StyleMatching.Render(w)
+		} else {
+			w = m.StyleCandidate.Render(w)
 		}
 		mlist = append(mlist, w)
 	}
