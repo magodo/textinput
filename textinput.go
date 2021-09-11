@@ -3,6 +3,7 @@ package textinput
 import (
 	"github.com/charmbracelet/bubbles/textinput"
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 )
 
 type (
@@ -25,10 +26,15 @@ type Model struct {
 	CandidateWords []string
 	matchingWords  []string
 	index          int
+
+	StyleMatching  lipgloss.Style
+	StyleCandidate lipgloss.Style
 }
 
 func NewModel() Model {
-	return Model{Model: textinput.NewModel()}
+	return Model{
+		Model: textinput.NewModel(),
+	}
 }
 
 func Blink() tea.Msg {

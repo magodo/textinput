@@ -7,6 +7,7 @@ import (
 	"log"
 
 	tea "github.com/charmbracelet/bubbletea"
+	"github.com/charmbracelet/lipgloss"
 	"github.com/magodo/textinput"
 )
 
@@ -186,6 +187,8 @@ func initialModel() model {
 	ti.CharLimit = 156
 	ti.Width = 20
 	ti.CandidateWords = classicalPokemons
+	ti.StyleMatching = lipgloss.NewStyle().Foreground(lipgloss.Color("205"))
+	ti.StyleCandidate = lipgloss.NewStyle().Foreground(lipgloss.Color("240"))
 
 	return model{
 		textInput: ti,
