@@ -51,7 +51,7 @@ func (m Model) Update(msg tea.Msg) (Model, tea.Cmd) {
 
 func (m Model) View() string {
 	out := m.Model.View()
-	if len(m.matchingWords) == 0 {
+	if len(m.matchingWords) == 0 || !m.ShowCandidate {
 		return out
 	}
 	mlist := []string{}

@@ -29,6 +29,7 @@ type Model struct {
 
 	StyleMatching  lipgloss.Style
 	StyleCandidate lipgloss.Style
+	ShowCandidate  bool
 }
 
 func NewModel() Model {
