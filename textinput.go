@@ -21,20 +21,42 @@ const (
 	CursorHide   = textinput.CursorHide
 )
 
+type CandidateViewMode int
+
+const (
+	CandidateViewVertical CandidateViewMode = iota
+	CandidateViewHorizental
+	CandidateViewNone
+)
+
+const (
+	defaultWidth = 40
+)
+
+type matchingRange struct {
+	sindex int
+	eindex int
+}
+
 type Model struct {
 	textinput.Model
 	CandidateWords []string
 	matchingWords  []string
 	index          int
 
+	CandidateViewMode CandidateViewMode
+	Width             int
+	ranges            []matchingRange
+	rangeIndex        int
+
 	StyleMatching  lipgloss.Style
 	StyleCandidate lipgloss.Style
-	ShowCandidate  bool
 }
 
 func NewModel() Model {
 	return Model{
 		Model: textinput.NewModel(),
+		Width: defaultWidth,
 	}
 }
 

@@ -189,7 +189,7 @@ func initialModel() model {
 	ti.CandidateWords = classicalPokemons
 	ti.StyleMatching = lipgloss.NewStyle().Foreground(lipgloss.Color("205"))
 	ti.StyleCandidate = lipgloss.NewStyle().Foreground(lipgloss.Color("240"))
-	ti.ShowCandidate = true
+	ti.CandidateViewMode = textinput.CandidateViewHorizental
 
 	return model{
 		textInput: ti,
