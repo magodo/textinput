@@ -92,7 +92,7 @@ func (m Model) View() string {
 		}
 		mlist = append(mlist, w)
 	}
-	return out + "\n" + strings.Join(mlist, " ") + "\n"
+	return out + "\n" + strings.Join(mlist, " ")
 }
 
 // buildRanges build the ranges and the range index based on current index and the window size.
